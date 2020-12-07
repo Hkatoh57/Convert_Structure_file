@@ -90,7 +90,7 @@ with open(o_name, mode='w') as f:
             if count < 10:
                 f.write('         '+str(count)+"         "+str(j+1)+"        ")
                 for k in data_list[i]:
-                    if float(m) < 0:
+                    if float(k) < 0:
                         f.write("     "+k[:15])
                     else:
                         f.write("      "+k[:14])
@@ -98,7 +98,7 @@ with open(o_name, mode='w') as f:
             if count >= 10:
                 f.write('        '+str(count)+"         "+str(j+1)+"        ")
                 for k in data_list[i]:
-                    if float(m) < 0:
+                    if float(k) < 0:
                         f.write("     "+k[:15])
                     else:
                         f.write("      "+k[:14])
@@ -106,7 +106,7 @@ with open(o_name, mode='w') as f:
             if count >= 100:
                 f.write('       '+str(count)+"         "+str(j+1)+"        ")
                 for k in data_list[i]:
-                    if float(m) < 0:
+                    if float(k) < 0:
                         f.write("     "+k[:15])
                     else:
                         f.write("      "+k[:14])
