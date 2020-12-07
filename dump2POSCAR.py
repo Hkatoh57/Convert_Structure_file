@@ -46,7 +46,7 @@ with open('POSCAR', mode='w') as f:
     f.write("   "+atom1+"   "+atom2+"\n")
     f.write("   "+num1+"   "+num2+"\n")
     f.write("direct\n")
-    data_list = data_list[-96:]
+    data_list = data_list[-1*(int(num1)+int(num2)):]
     list_1 = []
     list_2 = []
     for i in data_list:
