@@ -95,7 +95,7 @@ with open(o_name, mode='w') as f:
                     else:
                         f.write("      "+k[:14])
                 f.write("\n")
-            if count >= 10:
+            elif count < 10:
                 f.write('        '+str(count)+"         "+str(j+1)+"        ")
                 for k in data_list[i]:
                     if float(k) < 0:
