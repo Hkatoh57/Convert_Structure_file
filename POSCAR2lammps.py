@@ -58,6 +58,9 @@ y = np.dot(Rx, y)
 z = np.dot(Rx, z)
 
 atom_num = str(sum([int(i) for i in data_list[6]]))
+data_list[6].insert(0, "0")
+for i in range(1, len(data_list[6])):
+    data_list[6][i] = int(data_list[6][i]) + int(data_list[6][i-1])
 with open(o_name, mode='w') as f:
     f.write("# Model for "+"".join(data_list[5])+"\n")
     f.write("     "+atom_num+"     atoms\n")
@@ -73,7 +76,7 @@ with open(o_name, mode='w') as f:
     f.write("\n")
     count = 1
     for j in range(len(data_list[5])):
-        for i in range(8+int(atom_num)//len(data_list[5])*j, 8+int(atom_num)//len(data_list[5])*(j+1)):
+        for i in range(8+int(data_list[6][j]), 8+int(data_list[6][j+1])):
             x = float(data_list[i][0])
             y = float(data_list[i][1])
             z = float(data_list[i][2])
@@ -95,7 +98,7 @@ with open(o_name, mode='w') as f:
                     else:
                         f.write("      "+k[:14])
                 f.write("\n")
-            elif count < 10:
+            elif count <100:
                 f.write('        '+str(count)+"         "+str(j+1)+"        ")
                 for k in data_list[i]:
                     if float(k) < 0:
@@ -103,7 +106,7 @@ with open(o_name, mode='w') as f:
                     else:
                         f.write("      "+k[:14])
                 f.write("\n")
-            if count >= 100:
+            elif count >= 100:
                 f.write('       '+str(count)+"         "+str(j+1)+"        ")
                 for k in data_list[i]:
                     if float(k) < 0:
